@@ -31,7 +31,7 @@ This project automates the testing of a Patient Management web application using
 - Verifies successful dashboard load
 
 ### 2. **Add Patient**
-- Reads patient data from `test_data/patients.json`
+- Reads patient data from `data/patients.json`
 - Generates a **unique MRN** at runtime
 - Validates:
   - Phone number (must be 8–12 digits)
