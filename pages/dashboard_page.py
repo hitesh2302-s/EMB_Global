@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
 
+
 class DashboardPage:
-    TABLE_ROWS = (By.CSS_SELECTOR, "#patientTable tbody tr")
+    TABLE_ROWS = (By.XPATH, "//tbody/tr")
     LOGOUT_BUTTON = (By.ID, "logoutBtn")
+    LOGIN_TEXT = (By.XPATH,"//h2[normalize-space()='Login']")
 
     def __init__(self, browser):
         self.browser = browser
@@ -16,3 +18,4 @@ class DashboardPage:
 
     def logout(self):
         self.browser.find_element(*self.LOGOUT_BUTTON).click()
+        return self.browser.find_element(*self.LOGIN_TEXT).text

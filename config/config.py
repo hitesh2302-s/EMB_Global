@@ -3,5 +3,9 @@ CONFIG = {
     "credentials": {
         "username": "dtxplus",
         "password": "dtxplus"
+    },
+    "invalidCredentials": {
+        "username": "dtxplus1",
+        "password": "dtxplus1"
     }
 }

@@ -1,11 +1,5 @@
 import os
-import shutil
 from datetime import datetime
-
-# Suppress TensorFlow logs
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-os.environ['TF_CPP_MIN_VLOG_LEVEL'] = '0'
-
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -13,7 +7,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 import allure
-
+import json
 
 @pytest.fixture(scope="session")
 def browser(request):
@@ -64,6 +58,21 @@ def browser(request):
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome", help="Browser to run tests: chrome or firefox")
 
+
+@pytest.fixture(scope="function")
+def patient_data():
+    file_path = "data/patient_data.json"  # adjust the path if needed
+
+    with open(file_path, "r") as f:
+        data = json.load(f)
+
+    unique_mrn = datetime.now().strftime("%Y%m%d%H%M%S")
+    data[0]["MRN"] = unique_mrn
+
+    with open(file_path, "w") as f:
+        json.dump(data, f, indent=2)
+
+    return data[0]
 
 """allure report"""
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
