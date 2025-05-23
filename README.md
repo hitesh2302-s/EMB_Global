@@ -23,11 +23,11 @@ This project automates the testing of a Patient Management web application using
 
 ## How to Run Tests
 🔹 Step 1: Install Dependencies
-      pip install -r requirements.txt
+pip install -r requirements.txt
 🔹 Step 2: Execute Tests
-      pytest tests/test_patient_flow.py
+pytest tests/test_patient_flow.py
 🔹 Optional: Generate HTML Report
-    pytest tests/test_patient_flow.py --alluredir=reports/allure-results
+pytest tests/test_patient_flow.py --alluredir=reports/allure-results
 
 
 ## Features Covered
