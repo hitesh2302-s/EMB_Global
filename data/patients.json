@@ -1,0 +1,12 @@
+[
+  {
+    "MRN": "1003",
+    "First Name": "Alice",
+    "Last Name": "Wonderland",
+    "Date of Birth": "1985-09-10",
+    "Discharge Date & Time": "2024-03-15T11:00",
+    "Phone Number": "345-678-9012",
+    "Language": "English",
+    "Timezone": "EST"
+  }
+]
